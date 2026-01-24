@@ -1,0 +1,46 @@
+name: 🚀 Run QA Xray Analysis
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_url:
+        description: 'Target Repository URL (e.g., https://github.com/user/repo)'
+        required: true
+        type: string
+
+jobs:
+  analyze-codebase:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    # 1. Checkout YOUR Utility Code
+    - name: Checkout Utility
+      uses: actions/checkout@v4
+
+    # 2. Setup Python Environment
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    # 3. Install Dependencies
+    - name: Install Libraries
+      run: |
+        pip install requests gitpython
+
+    # 4. Run the Scanner
+    # We pass the Input URL and the Secret Key
+    - name: Run Xray Scanner
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        python xray.py "${{ inputs.repo_url }}"
+
+    # 5. Save the HTML as an Artifact
+    - name: Upload Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: QA-Dashboard-Report
+        path: qa_report_final.html
