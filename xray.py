@@ -22,12 +22,13 @@ class Colors:
 TEXT_EXTENSIONS = ('.ts', '.js', '.py', '.java', '.groovy', '.gradle', '.tsx', '.jsx', '.sh', '.yml', '.yaml', '.json', '.md', '.txt', '.xml', '.dockerfile', '.properties', '.cs', '.go', '.rb', '.php', '.rs', '.tf')
 
 # ==========================================
-# 🔑 API KEY SETUP
+# 🔑 API KEY SETUP (UPDATED FOR GITHUB ACTIONS)
 # ==========================================
-GEMINI_API_KEY = "PASTE_YOUR_KEY_HERE"
+# This reads the secret passed from your workflow file
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-if os.getenv("GEMINI_API_KEY"):
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    print(f"{Colors.YELLOW}⚠️  Warning: GEMINI_API_KEY not found. AI features will be disabled.{Colors.ENDC}")
 
 # 🔍 PATTERNS
 IMPORT_PATTERNS = {
@@ -115,7 +116,7 @@ def generate_ai_readme(project_name, files_data):
     """Uses Google Gemini API with fallback to Heuristic."""
     
     # 1. Check Key Presence
-    if not GEMINI_API_KEY or "PASTE_YOUR" in GEMINI_API_KEY:
+    if not GEMINI_API_KEY:
         return generate_heuristic_readme(files_data)
 
     print(f"{Colors.YELLOW}🧠 Asking Gemini to explain the project...{Colors.ENDC}")
@@ -347,7 +348,8 @@ def generate_report(project_name, files_data, graph_edges, used_by):
     path = "qa_report_final.html"
     with open(path, "w", encoding="utf-8") as f: f.write(html_content)
     print(f"{Colors.HEADER}✅ Done: {path}{Colors.ENDC}")
-    webbrowser.open("file://" + os.path.abspath(path))
+    # Commented out for headless server environments
+    # webbrowser.open("file://" + os.path.abspath(path))
 
 if __name__ == "__main__":
     target = sys.argv[1] if len(sys.argv) > 1 else "."
@@ -358,6 +360,7 @@ if __name__ == "__main__":
         print(f"{Colors.BLUE}⬇️ Cloning...{Colors.ENDC}")
         temp_dir = tempfile.mkdtemp()
         try:
+            # Requires git to be installed on the runner
             subprocess.check_call(["git", "clone", "--depth", "1", target, temp_dir], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             path = temp_dir
             is_temp = True
