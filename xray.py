@@ -136,8 +136,8 @@ def generate_ai_readme(project_name, files_data):
     """
 
     try:
-        # UPDATED URL: Using 'gemini-1.5-flash-latest' which is more stable
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={GEMINI_API_KEY}"
+        # UPDATED URL: Using 'gemini-2.5-flash' which is more stable
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
         headers = {'Content-Type': 'application/json'}
         data = {"contents": [{"parts": [{"text": prompt}]}]}
 
