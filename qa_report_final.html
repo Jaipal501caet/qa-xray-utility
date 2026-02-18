@@ -1,0 +1,137 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>TestForge-AIQA-Agent - Enterprise Utility</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; }
+            .sidebar { height: 100vh; width: 250px; position: fixed; top: 0; left: 0; background: #1a1a1a; color: white; padding: 20px; }
+            .sidebar .nav-link { color: #aaa; margin-bottom: 5px; }
+            .sidebar .nav-link.active { color: #fff; background: #333; border-radius: 5px; }
+            .main-content { margin-left: 250px; padding: 30px; }
+            .stat-card { border: none; border-radius: 10px; color: white; }
+            .mermaid { background: white; padding: 20px; border-radius: 10px; text-align: center; }
+            .ai-box { background: white; border-left: 5px solid #4285F4; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        </style>
+    </head>
+    <body>
+    <div class="sidebar d-flex flex-column">
+        <h4 class="mb-4">⚡ QA Utility</h4>
+        <ul class="nav nav-pills flex-column mb-auto" id="mainTab">
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#dash"><i class="fas fa-chart-line me-2"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#readme"><i class="fas fa-magic me-2"></i> Project Overview</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#risk"><i class="fas fa-shield-alt me-2"></i> Risks <span class="badge bg-danger ms-2">37</span></a></li>
+            <li class="nav-item"><a class="nav-link" id="arch-tab" data-bs-toggle="pill" href="#arch"><i class="fas fa-project-diagram me-2"></i> Architecture</a></li>
+        </ul>
+        <div class="mt-auto small text-muted">Generated: 2026-02-17</div>
+    </div>
+    <div class="main-content"><div class="tab-content">
+        <div class="tab-pane fade show active" id="dash">
+            <h2>Project Dashboard</h2>
+            <div class="row mb-4">
+                <div class="col-md-3"><div class="card stat-card bg-primary p-3"><h3>105</h3><small>Files</small></div></div>
+                <div class="col-md-3"><div class="card stat-card bg-success p-3"><h3>6</h3><small>Tests</small></div></div>
+                <div class="col-md-3"><div class="card stat-card bg-danger p-3"><h3>37</h3><small>Risks</small></div></div>
+                <div class="col-md-3"><div class="card stat-card bg-info p-3"><h3>6</h3><small>Hubs</small></div></div>
+            </div>
+            <h4>Impact Analysis</h4>
+            <div class="row">
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>test</strong><span class="badge bg-primary">6 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>tests/add_backpack_to_cart.spec.ts</li><li class='small text-muted border-bottom py-1'>playwright.config.ts</li><li class='small text-muted border-bottom py-1'>pages/SauceDemoPage.ts</li><li class='small text-muted border-bottom py-1'>tests/remove_backpack_from_cart.spec.ts</li><li class='small text-muted border-bottom py-1'>tests/login_with_standard_user.spec.ts</li></ul>
+                </div>
+            </div></div>
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>path</strong><span class="badge bg-primary">3 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>src/core/scout/vision_scout.ts</li><li class='small text-muted border-bottom py-1'>src/core/architect/llm_bridge.ts</li><li class='small text-muted border-bottom py-1'>src/core/ops/runner.ts</li></ul>
+                </div>
+            </div></div>
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>fs</strong><span class="badge bg-primary">3 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>src/core/scout/vision_scout.ts</li><li class='small text-muted border-bottom py-1'>src/core/architect/llm_bridge.ts</li><li class='small text-muted border-bottom py-1'>src/core/ops/runner.ts</li></ul>
+                </div>
+            </div></div>
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>dotenv</strong><span class="badge bg-primary">2 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>src/core/architect/llm_bridge.ts</li><li class='small text-muted border-bottom py-1'>check_models.ts</li></ul>
+                </div>
+            </div></div>
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>SauceDemoPage</strong><span class="badge bg-primary">2 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>tests/logout_user.spec.ts</li><li class='small text-muted border-bottom py-1'>tests/login_with_standard_user.spec.ts</li></ul>
+                </div>
+            </div></div>
+            <div class="col-md-6 mb-3"><div class="card h-100 border-start border-4 border-primary shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between"><strong>child_process</strong><span class="badge bg-primary">1 Refs</span></div>
+                    <ul class="list-unstyled mt-2 mb-0"><li class='small text-muted border-bottom py-1'>src/core/ops/runner.ts</li></ul>
+                </div>
+            </div></div></div>
+        </div>
+        <div class="tab-pane fade" id="readme">
+            <h2>Project Explanation</h2>
+            <div class="ai-box"><h3>What is this project?</h3>
+<p>
+    This project, "TestForge-AIQA-Agent", is a sophisticated AI-driven Quality Assurance agent primarily built with TypeScript and Node.js, integrating Python for its core intelligence. It leverages Playwright for robust web automation, aiming to intelligently generate, execute, and maintain UI tests. Its purpose is to provide autonomous and adaptive testing capabilities, supported by comprehensive test reporting using Allure.
+</p>
+<ul>
+    <li><b>AI-Powered Test Orchestration:</b> Features an `agent_core` and `prompt_engine` indicating AI/LLM integration for dynamic test generation and strategy.</li>
+    <li><b>Advanced Web Scouting & Vision:</b> Utilizes Playwright for web automation, enhanced by `dom_crawler` and `vision_scout` for intelligent UI understanding.</li>
+    <li><b>Adaptive Execution & Reporting:</b> Includes a `healer` component for self-correction during test runs, alongside extensive Allure reporting for detailed analytics.</li>
+</ul></div>
+        </div>
+        <div class="tab-pane fade" id="risk">
+            <h2>Security Audit</h2>
+            <div class="card"><table class="table table-hover mb-0">
+                <thead><tr><th>Sev</th><th>File</th><th>Issue</th><th>Fix</th></tr></thead>
+                <tbody><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>check_models.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>check_models.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>check_models.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/agent_core.py</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/ops/runner.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/ops/runner.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/ops/runner.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/ops/runner.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Medium</span></td><td>src/core/scout/vision_scout.ts</td><td>⚠️ Hardcoded Sleep</td><td>Use explicit waits.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/scout/vision_scout.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/scout/vision_scout.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/scout/vision_scout.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/scout/vision_scout.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/architect/llm_bridge.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/architect/llm_bridge.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/architect/llm_bridge.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>src/core/architect/llm_bridge.ts</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>allure-report/app.js</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>allure-report/app.js</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>allure-report/app.js</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>allure-report/app.js</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr><tr><td><span class='badge bg-warning text-dark'>Low</span></td><td>allure-report/plugin/screen-diff/index.js</td><td>⚠️ Console Log</td><td>Use a Logger.</td></tr></tbody>
+            </table></div>
+        </div>
+        <div class="tab-pane fade" id="arch">
+            <h2>Architecture</h2>
+            <div class="mermaid" id="graph"></div>
+        </div>
+    </div></div>
+    
+    <script id="gdata" type="application/json">[{"source": "playwright.config.ts", "target": "test"}, {"source": "check_models.ts", "target": "dotenv"}, {"source": "remove_backpack_from_cart.spec.ts", "target": "test"}, {"source": "login_with_standard_user.spec.ts", "target": "test"}, {"source": "login_with_standard_user.spec.ts", "target": "SauceDemoPage"}, {"source": "add_backpack_to_cart.spec.ts", "target": "test"}, {"source": "logout_user.spec.ts", "target": "test"}, {"source": "logout_user.spec.ts", "target": "SauceDemoPage"}, {"source": "runner.ts", "target": "child_process"}, {"source": "runner.ts", "target": "util"}, {"source": "runner.ts", "target": "path"}, {"source": "runner.ts", "target": "fs"}, {"source": "vision_scout.ts", "target": "playwright"}, {"source": "vision_scout.ts", "target": "fs"}, {"source": "vision_scout.ts", "target": "path"}, {"source": "llm_bridge.ts", "target": "fs"}, {"source": "llm_bridge.ts", "target": "path"}, {"source": "llm_bridge.ts", "target": "generative-ai"}, {"source": "llm_bridge.ts", "target": "dotenv"}, {"source": "SauceDemoPage.ts", "target": "test"}]</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            mermaid.initialize({ startOnLoad: false, securityLevel: 'loose' });
+            const data = JSON.parse(document.getElementById('gdata').textContent);
+            const div = document.getElementById('graph');
+            
+            function draw() {
+                if(!data || data.length === 0) { 
+                    div.innerHTML = '<div class="alert alert-info">No dependencies found to graph.</div>'; 
+                    return; 
+                }
+                let s = "graph LR\nclassDef f fill:#fff,stroke:#333;\n";
+                let nodes = {}, c = 1;
+                const getSafeId = n => nodes[n] || (nodes[n] = "n" + c++);
+
+                data.forEach(e => {
+                    let u = getSafeId(e.source);
+                    let v = getSafeId(e.target);
+                    let l1 = e.source.replace(/[^a-zA-Z0-9._-]/g, '_');
+                    let l2 = e.target.replace(/[^a-zA-Z0-9._-]/g, '_');
+                    if(u !== v) s += `${u}["${l1}"] --> ${v}["${l2}"]\n`;
+                });
+                
+                div.innerHTML = s; div.removeAttribute('data-processed');
+                try { mermaid.run({ nodes: [div] }); } catch(err) { div.innerHTML = "Error: " + err.message; }
+            }
+            document.getElementById('arch-tab').addEventListener('shown.bs.tab', () => setTimeout(draw, 100));
+        });
+    </script>
+    </body></html>
+    
